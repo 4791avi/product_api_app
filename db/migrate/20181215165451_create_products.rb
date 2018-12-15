@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :categories
       t.text :tags
       t.integer :price
+      t.date :expire_date
       t.text :metadata
 
       t.timestamps

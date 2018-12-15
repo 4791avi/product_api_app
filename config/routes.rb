@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 		  resources :products
 		end
 	end
+	namespace :admin do
+		resources :products
+	end
 end

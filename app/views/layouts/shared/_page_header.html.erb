@@ -1,0 +1,21 @@
+<% if @page_title.present? || @page_description.present? %>
+	<div class="page-header page-header-light">
+		<div class="page-header-content header-elements-md-inline">
+			<div class="page-title d-flex">
+				<h4>
+					<%= link_to :back, style: "color: #333333;" do %>
+						<i class="icon-arrow-left52 mr-2"></i>
+					<% end %>
+					<% if @page_title.present? %>
+						<span class="font-weight-semibold"><%= @page_title %></span>
+					<% end %>
+					<% if @page_title.present? && @page_description.present? %> - <% end %>
+					<% if @page_description.present? %>
+						<%= @page_description %>
+					<% end %>
+				</h4>
+				<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+			</div>
+		</div>
+	</div>
+<% end %>

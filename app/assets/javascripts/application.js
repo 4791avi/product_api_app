@@ -12,5 +12,12 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+//= require jquery.min
+//= require bootstrap.bundle.min
+//= require blockui.min
+//= require uniform.min
+//= require datatables.min
+//= require select2.min
+//= require app
+// require turbolinks
+// require_tree .

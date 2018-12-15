@@ -1,0 +1,13 @@
+<div class="card border-top-3 border-top-slate-800 rounded-0">
+  <div class="card-header bg-white header-elements-inline">
+    <h6 class="card-title font-weight-bold text-uppercase">Edit Product</h6>
+    <div class="header-elements">
+      <a href="<%= admin_products_path %>" class="btn btn-outline bg-slate-800 text-slate-800 border-slate-800 btn-icon border-2 ml-2" title="List" data-popup="tooltip">
+				<i class="icon-list"></i>
+			</a>
+    </div>
+  </div>
+  <div class="card-body">
+    <%= render 'form', product: @product %>
+  </div>  
+</div>

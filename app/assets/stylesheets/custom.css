@@ -1,0 +1,13 @@
+.field_with_errors
+{
+	position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+.style_image {
+   display:block;
+   width:16%;
+   height:auto;
+}

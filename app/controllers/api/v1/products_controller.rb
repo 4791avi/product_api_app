@@ -9,12 +9,6 @@ class Api::V1::ProductsController < Api::V1::ApplicationController
 		puts image_url.class
 		downloaded_image = open(image_url)
 		product.image.attach(io: downloaded_image  , filename: "mona.jpg")
-		# abort
-		# puts "---------------"
-		# puts image_url
-		# download_image = open(image_url)
-		# abort download_image
-		# product.image.attach(download_image)
 	if product.save
 		render json: {status: 'SUCCESS', message: 'Save product',date: product},status: :ok
 	else

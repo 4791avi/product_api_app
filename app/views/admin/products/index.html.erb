@@ -1,0 +1,65 @@
+<div class="card border-top-3 border-top-slate-800 rounded-0">
+	<div class="card-header bg-white header-elements-inline">
+		<h6 class="card-title font-weight-bold text-uppercase">Products</h6>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-hover product_datatable">
+			<thead>
+				<tr>
+					<th>NAME</th>
+					<th>SKU_ID</th>
+					<th>PRICE</th>
+					<th>EXPIRE DATE</th>
+		      <th>IMAGE</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% if @products.present? %>
+					<% @products.each do |product| %>
+						<tr>
+							<td><a href="<%= edit_admin_product_path(product) %>"><%= product.try(:name) %></a></td>
+							<td><%= product.try(:sku_id) %></td>
+			        <td><%= product.try(:price) %></td>
+			         <td><%= product.try(:expire_date) %></td>
+			        <td>
+								<% if product.image.attached? %>
+								<%= image_tag url_for(product.image), :class => "style_image rounded-circle"%>
+								<% end %>
+			        </td>
+			      </tr>
+			    <% end %>
+	      <% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<script type="text/javascript">
+  $(".product_datatable").DataTable({
+    "order": [],
+    "displayStart": 0,
+    "iDisplayLength": 50,
+    "columnDefs": [ {
+      "targets": [4],
+      "orderable": false,
+    } ],
+    dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+    language: {
+      search: '<span>Filter:</span> _INPUT_',
+      lengthMenu: '<span>Show:</span> _MENU_',
+      paginate: { 'first': 'First', 'last': 'Last', 'next': '&rarr;', 'previous': '&larr;' },
+      emptyTable: 'Listing of products goes here.'
+    },
+    drawCallback: function () {
+      $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
+    },
+    preDrawCallback: function() {
+      $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
+    }
+  });
+  $('.dataTables_filter input[type=search]').attr('placeholder','Type to filter...');
+
+  $('.dataTables_length select').select2({
+    minimumResultsForSearch: Infinity,
+    width: 'auto'
+  });
+</script>

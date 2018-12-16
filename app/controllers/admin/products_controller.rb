@@ -1,4 +1,4 @@
-class Admin::ProductsController < Admin::ApplicationController
+class Admin::ProductsController < ApplicationController
 	skip_before_action :verify_authenticity_token
 	before_action :set_product, only: [:show,:edit,:update]
 	def index

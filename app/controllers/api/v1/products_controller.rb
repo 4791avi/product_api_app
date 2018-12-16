@@ -11,7 +11,7 @@ class Api::V1::ProductsController < Api::V1::ApplicationController
 		puts image_url = image_url[0]["img_path"]
 		downloaded_image = open(image_url)
 		@product.image.purge
-		update_product.image.attach(io: downloaded_image  , filename: "product_image.jpg")
+		@product.image.attach(io: downloaded_image  , filename: "product_image.jpg")
 		if update_product
 			render json: {status: 'SUCCESS', message: 'Product Updated',data: @product},status: :ok
 		else

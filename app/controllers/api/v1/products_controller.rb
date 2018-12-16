@@ -11,7 +11,7 @@ class Api::V1::ProductsController < Api::V1::ApplicationController
 		puts image_url = image_url[0]["img_path"]
 		downloaded_image = open(image_url)
 		@product.image.purge
-		@product.image.attach(io: downloaded_image  , filename: "product_image.jpg")
+		@product.image.attach(io: downloaded_image  , filename: "product_updated_image.jpg")
 		if update_product
 			render json: {status: 'SUCCESS', message: 'Product Updated',data: @product},status: :ok
 		else
@@ -23,12 +23,12 @@ class Api::V1::ProductsController < Api::V1::ApplicationController
 		puts image_url = params[:parameters]["images"]
 		puts image_url = image_url[0]["img_path"]
 		downloaded_image = open(image_url)
-		product.image.attach(io: downloaded_image  , filename: "mona.jpg")
+		product.image.attach(io: downloaded_image  , filename: "product_image.jpg")
 		if product.save
 			render json: {status: 'SUCCESS', message: 'Product saved',data: product},status: :ok
 		else
 			render json: {status: 'ERROR', message: 'Product not saved',data: product.errors},status: :unprocessable_entity
 		end 
 	end 	
-  end
+  end 
 end

@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::ApplicationController
 	skip_before_action :verify_authenticity_token
 	before_action :set_product, only: [:show,:edit,:update]
 	def index
-		@products = Product.all
+		@products = Product.all.order(created_at: :desc)
 	end
 
 	def show
